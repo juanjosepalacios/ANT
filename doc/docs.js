@@ -21,3 +21,22 @@ window.addEventListener('DOMContentLoaded', () => {
   updateHeaderHeight();
   new ResizeObserver(updateHeaderHeight).observe(header);
 });
+
+// Keep the selected Gaussian interface when navigating shared documentation.
+window.addEventListener('DOMContentLoaded', () => {
+  if (new URLSearchParams(window.location.search).get('code') !== 'gaussian16') return;
+  const destinations = {
+    'ant_g03.html': 'ant_g03.html?code=gaussian16',
+    'manual_1_g03.html': 'g16-installation.html',
+    'manual_3_g03.html': 'manual_3_g03.html?code=gaussian16',
+    'input_files_g03.html': 'g16-input-files.html?v=2',
+    'publications_g03.html': 'publications_g03.html?code=gaussian16',
+    'examples_g03.html': 'g16-examples.html'
+  };
+  document.querySelectorAll('.section-header nav a, .pager a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (destinations[href]) link.setAttribute('href', destinations[href]);
+  });
+  const nav = document.querySelector('.section-header nav');
+  if (nav) nav.setAttribute('aria-label', 'ANT.Gaussian16 sections');
+});
