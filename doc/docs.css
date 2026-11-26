@@ -13,3 +13,6 @@
   .section-header a { padding:8px 10px; font-size:14px; }
   .layout { padding:24px 18px 60px; }
 }
+
+.section-header > .home-link { display:inline-block; margin:12px 28px 0; padding:0; border:0; font-weight:700; }
+@media(max-width:600px) { .section-header > .home-link { margin:10px 16px 0; } }
