@@ -199,6 +199,14 @@ P.job_name;.dat.</p>
 <p>Historical secant-switch threshold. SSM no longer selects the device root algorithm; see DEVMULLER and DEVBRENT.</p>
 <p>Default: SSM = 1.0D-3</p>
 </details>
+<details id="npc">
+<summary><em>NPC</em> (integer)</summary>
+<p>Range of intercell Hamiltonian and overlap couplings retained for periodic <a href="#type1-and-type2">1DLEAD</a> electrodes, measured in the repeated units defined by <a href="#natpc1-and-natpc2">NATPC1 and NATPC2</a>. The same NPC value applies to both 1D leads. NPC = 1 retains the on-site block and coupling to the nearest neighboring unit; NPC = 2 additionally retains coupling to the second neighboring unit, and so on. The lead solver groups NPC repeated units into a principal layer.</p>
+<p>Use a positive integer. Include at least NPC + 1 identical translated repeated units at each relevant end of the input cluster so that all required coupling blocks can be extracted, with consistent atom ordering in each unit. Leave a central device region between the lead buffers. NPC does not specify the number of atoms per unit and does not control Bethe-lattice embedding.</p>
+<p>For NPC = 1, choose a repeated unit large enough that couplings beyond the nearest neighboring unit are negligible. More generally, verify that couplings beyond the selected range are negligible and check convergence of the lead DOS and transmission with the repeated-unit size and coupling range.</p>
+<pre><code>NPC = 1</code></pre>
+<p>Default: NPC = 1</p>
+</details>
 <details id="natpc1-and-natpc2">
 <summary><em>NATPC1 and NATPC2</em> (integer)</summary>
 <p>Number of atoms in the chosen repeated unit of each 1DLEAD electrode.
