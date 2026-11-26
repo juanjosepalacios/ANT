@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 
 <html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Overview · ANT</title><link href="docs.css?v=20261126-home" rel="stylesheet"/><script defer="" src="docs.js?v=20261126-home"></script></head><body>
-<header class="section-header"><a class="home-link" href="../index.html">← ANT website</a><nav aria-label="ANT.Gaussian09 sections"><a aria-current="page" href="ant_g03.html">Overview</a><a href="manual_1_g03.html">Installation instructions</a><a href="manual_3_g03.html">Keyword reference</a><a href="input_files_g03.html">Input files</a><a href="publications_g03.html">Publication and citation</a><a href="examples_g03.html">Example outputs</a></nav></header>
-<div class="layout"><main><p class="eyebrow">Atomistic NanoTransport</p><h1>Overview</h1><div class="doc-content"><p><span>ANT.Gaussian</span> (version 3.3.0)
-interfaces with the quantum chemistry code Gaussian09 to compute the
-electronic structure and transport of nanoscale devices with open boundary
-conditions, in equilibrium and out of equilibrium (zero and finite bias
-voltage). It follows an onion-shell scheme: the central scattering region
-and part of the electrodes are computed at the density functional theory
-level, as implemented in Gaussian09, while the far electrodes are
-described by model self-energies.</p>
-<img alt="Bethe lattice" src="images/LDR.jpg"/><img alt="Scheme of Bethe lattice conneting a system" src="images/bl-scheme.jpg"/><br/>
+<header class="section-header"><a class="home-link" href="../index.html">← ANT website</a><nav aria-label="ANT shared documentation sections"><a aria-current="page" href="ant_g03.html">Overview</a><a href="manual_1_g03.html">Installation instructions</a><a href="manual_3_g03.html">Keyword reference</a><a href="input_files_g03.html">Input files</a><a href="publications_g03.html">Publication and citation</a><a href="examples_g03.html">Example outputs</a></nav></header>
+<div class="layout"><main><p class="eyebrow">Atomistic NanoTransport</p><h1>Overview</h1><div class="doc-content"><h2>ANT.Gaussian09 and ANT.Gaussian16</h2>
+<p>ANT combines Gaussian electronic-structure calculations with Landauer and non-equilibrium Green’s function methods to study electron transport through atomically defined junctions. Both interfaces follow the same physical division: a central scattering region and explicit electrode atoms are described with a quantum-chemical Hamiltonian, while semi-infinite electrodes enter through model self-energies. The resulting open-system density is used in a self-consistent electronic-structure calculation.</p>
+<p>The two codes differ in how ANT communicates with Gaussian and controls the calculation. ANT.Gaussian09 is integrated into modified Gaussian09 executables; ANT.Gaussian16 uses a Python driver, GauOpen and the PyANT Fortran extension.</p>
+<div style="overflow-x:auto"><table><thead><tr><th></th><th>ANT.Gaussian09</th><th>ANT.Gaussian16</th></tr></thead><tbody>
+<tr><th>Interface</th><td>ANT is linked into Gaussian09’s modified L502; a modified L101 reads the job name.</td><td>ANT-Gau-Open drives Gaussian16 through GauOpen and calls ANT through the PyANT extension.</td></tr>
+<tr><th>Installation</th><td>Requires a source-built Gaussian09 and compatible Fortran toolchain to prepare and link the modified executables.</td><td>Requires Gaussian16, GauOpen, a supported Python environment and a compiled PyANT extension.</td></tr>
+<tr><th>Running a calculation</th><td>Run Gaussian with the ANT executables selected using the input’s %Subst directives.</td><td>Run <code>ant-gau-open INPUT_FILE [OPTIONS]</code>, optionally through <code>poetry run</code>.</td></tr>
+<tr><th>SCF control</th><td>The modified Gaussian SCF calls ANT to replace the density matrix after pre-convergence.</td><td>The Python driver orchestrates Gaussian Fock-matrix updates, ANT density calculations and density mixing.</td></tr>
+<tr><th>Input and controls</th><td>Gaussian geometry/basis input plus the job’s ANT parameter file.</td><td>Gaussian input and ANT parameters, with additional command-line controls for the model, mixing, convergence, Gaussian cores and memory.</td></tr>
+<tr><th>Restart workflow</th><td>Uses ANT saved-density files and the restart controls described below.</td><td>The Python interface includes restart handling through Gaussian binary archive files.</td></tr>
+<tr><th>Availability</th><td>Public repository, GPL-3.0.</td><td>Prototype, proprietary, private repository available to authorised users.</td></tr>
+</tbody></table></div>
+<p><a href="manual_1_g03.html">Install ANT.Gaussian09 →</a> · <a href="g16-installation.html">Install ANT.Gaussian16 and view command-line options →</a></p>
+<h2>Transport workflow</h2>
+<ol><li>Prepare the junction geometry, basis and electrode model, and obtain an initial electronic density with Gaussian.</li><li>Connect the model electrodes and calculate the open-system density with ANT.</li><li>Update the electronic Hamiltonian with Gaussian and iterate the density until convergence.</li><li>Evaluate transmission, densities of states and the analyses supported by the selected implementation.</li></ol>
+<img alt="Central device region between left and right electrodes" src="images/LDR.jpg"/><img alt="Bethe-lattice electrodes attached to an atomistic junction" src="images/bl-scheme.jpg"/>
+<h2>Features and implementation details</h2>
+<p>The physical framework is shared, but the two repositories are developed separately. The detailed features, keyword defaults and output filenames below describe the current ANT.Gaussian09 implementation (3.3.0); they should not be taken as a guarantee that every feature is implemented identically in the PyANT version supplied with ANT.Gaussian16. For Gaussian16-specific execution and SCF options, use its <a href="g16-installation.html#command-line-options">command-line reference</a>.</p>
 <p><strong>How a calculation proceeds:</strong></p>
 <ul>
 <li>GAUSSIAN starts its usual SCF for the cluster. When its density
@@ -120,39 +129,11 @@ Dynamical Mean Field Theory through correlated blocks and hybridization
 functions (<a href="manual_3_g03.html#corrblocks"><em>CORRBLOCKS</em></a>, <a href="manual_3_g03.html#hybfunc"><em>HYBFUNC</em></a>,
 <a href="manual_3_g03.html#portho"><em>PORTHO</em></a>, <a href="manual_3_g03.html#diagcorrbl"><em>DIAGCORRBL</em></a>).</li>
 </ul>
-<p><strong>Complementary codes:</strong></p>
-<ul>
-<li>CRY2TB: extraction of Bethe lattice parameters from CRYSTAL
-calculations.</li>
-<li><a href="ant_1D.html">ANT.1D</a>: transport through one-dimensional
-systems from a pre-computed Hamiltonian, either a tight-binding model or a
-periodic calculation with codes such as CRYSTAL or SIESTA.</li>
-</ul>
 <p>Worked examples (Al, Au, Ni, Pt and other nanocontacts, molecules and
 graphene) are distributed in the <em>examples</em> directory; see also the
 <a href="manual_g03.html">Manual</a> and the
 <a href="examples_g03.html">Examples</a> page.</p>
-<h2>Technical specifications</h2><span>Current version: 2.4.1<br/>
-<br/>
-ANT.G</span> is written in
-FORTRAN90 and uses
-OpenMP directives to take full advantage of multiprocessor nodes.
-<br/>
-<br/>
-<span>ANT.G</span> has been thoroughly
-tested with PGI and Intel compilers on
-various 32-
-and 64-bit platforms.<br/>
-<br/>
-<ul>
-<strong> Performance test <br/>
-<br/>
-<br/>
-<img alt="" src="scaling.jpg"/>
-<br/>
-</strong>
-</ul>
-Triangles: OVERLAP &lt; 0.0, Circles: OVERLAP = 0.0
+<h2>Implementation and parallelism</h2><p>The ANT transport engine is written in Fortran. ANT.Gaussian09 supplies Intel and NVIDIA/PGI build configurations and uses OpenMP in its numerical work. ANT.Gaussian16 wraps a Fortran engine as PyANT and provides optional OpenMP support at build time. Compiler requirements and parallel settings depend on the interface; follow the corresponding installation guide.</p>
 <h2>Developers and contributors</h2><u>Current developers<br/>
 <br/>
 </u>
@@ -230,5 +211,5 @@ juanjose.palacios@uam.es<br/>
 <strong> </strong>
 </ol>
 </ol>
-</div><nav aria-label="Documentation pages" class="pager"><span></span><a href="manual_1_g03.html">Installation instructions →</a></nav></main></div>
+</div><nav aria-label="Documentation pages" class="pager"><span></span><span><a href="manual_1_g03.html">Gaussian09 installation →</a> · <a href="g16-installation.html">Gaussian16 installation →</a></span></nav></main></div>
 <footer>ANT — Atomistic NanoTransport · <a href="../index.html">Back to ANT</a></footer></body></html>
