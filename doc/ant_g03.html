@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>ANT.Gaussian09 overview · ANT</title><link href="docs.css" rel="stylesheet"/><script defer="" src="docs.js"></script></head><body>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Overview · ANT</title><link href="docs.css" rel="stylesheet"/><script defer="" src="docs.js"></script></head><body>
 <header><nav aria-label="Main navigation"><a class="brand" href="../index.html">ANT.</a><div class="toplinks"><a href="../index.html#codes">Codes</a><a href="index.html">Documentation</a><a href="https://github.com/juanjosepalacios/ANT.Gaussian">Source ↗</a></div></nav></header>
-<div class="layout"><aside><details class="doc-menu" open=""><summary>ANT.Gaussian09 documentation</summary><nav aria-label="Documentation"><a href="index.html">ANT documentation</a><a aria-current="page" href="ant_g03.html">ANT.Gaussian09 overview</a><a href="manual_g03.html">User manual</a><a href="manual_1_g03.html">Installation</a><a href="manual_2_g03.html">Gaussian input file</a><a href="manual_3_g03.html">ANT input and keyword reference</a><a href="manual_4_g03.html">Bethe lattice input file</a><a href="manual_4_g03_ex1.html">Gold Bethe lattice parameters</a><a href="manual_4_g03_ex2.html">Nickel Bethe lattice parameters</a><a href="distribution_g03.html">Distribution</a><a href="people_g03.html">Developers and contributors</a><a href="technical_g03.html">Technical specifications</a><a href="publications_g03.html">Publications and citation</a><a href="examples_g03.html">Examples</a></nav></details></aside><main><p class="eyebrow">Atomistic NanoTransport</p><h1>ANT.Gaussian09 overview</h1><div class="doc-content"><p><span>ANT.Gaussian</span> (version 3.3.0)
+<div class="layout"><aside><details class="doc-menu" open=""><summary>ANT.Gaussian09 documentation</summary><nav aria-label="Documentation"><a aria-current="page" href="ant_g03.html">Overview</a><a href="manual_1_g03.html">Installation instructions</a><a href="manual_3_g03.html">Keyword reference</a><a href="input_files_g03.html">Input files</a><a href="publications_g03.html">Publication and citation</a><a href="examples_g03.html">Example outputs</a></nav></details></aside><main><p class="eyebrow">Atomistic NanoTransport</p><h1>Overview</h1><div class="doc-content"><p><span>ANT.Gaussian</span> (version 3.3.0)
 interfaces with the quantum chemistry code GAUSSIAN03/09 to compute the
 electronic structure and transport of nanoscale devices with open boundary
 conditions, in equilibrium and out of equilibrium (zero and finite bias
@@ -132,5 +132,103 @@ periodic calculation with codes such as CRYSTAL or SIESTA.</li>
 graphene) are distributed in the <em>examples</em> directory; see also the
 <a href="manual_g03.html">Manual</a> and the
 <a href="examples_g03.html">Examples</a> page.</p>
-</div><nav aria-label="Documentation pages" class="pager"><a href="index.html">← ANT documentation</a><a href="manual_g03.html">User manual →</a></nav></main></div>
+<h2>Technical specifications</h2><span>Current version: 2.4.1<br/>
+<br/>
+ANT.G</span> is written in
+FORTRAN90 and uses
+OpenMP directives to take full advantage of multiprocessor nodes.
+<br/>
+<br/>
+<span>ANT.G</span> has been thoroughly
+tested with PGI and Intel compilers on
+various 32-
+and 64-bit platforms.<br/>
+<br/>
+<ul>
+<strong> Performance test <br/>
+<br/>
+<br/>
+<img alt="" src="scaling.jpg"/>
+<br/>
+</strong>
+</ul>
+Triangles: OVERLAP &lt; 0.0, Circles: OVERLAP = 0.0
+<h2>Developers and contributors</h2><u>Current developers<br/>
+<br/>
+</u>
+<ul>
+<li> <strong>J. J. Palacios</strong>, Dpto. de Fisica de la Materia
+Condensada and Condensed Matter Physics Institute (IFIMAC), Universidad Autonoma de Madrid, Madrid 28049, Spain. </li>
+<li> <strong>D. Jacob</strong>, Theory Department,
+Max-Planck-Institute for Microstructure Physics, Halle, 06120
+(GERMANY). </li>
+<li>
+<span>M. Soriano, </span>
+Institut de la Matiére Condensée et des Nanosciences (IMCN), Nanoscopic Physics (NAPS),
+Université Catholique de Louvain (UCL), Belgium.</li>
+<li> <strong>C. Salgado</strong>, Dpto. de Fisica de la Materia
+Condensada, Universidad Autonoma de Madrid, Madrid 28049, Spain. </li>
+<li> <strong>W. Dednam</strong>, Dept. of Physics, University of South Africa, Johannesburg 1710, South Africa. </li>
+<ul>
+<span>Former </span><u>developers</u>
+<li><br/>
+<strong></strong></li>
+<strong> </strong>
+<li><strong><strong>A. J. Perez-Jimenez</strong>,
+    <span>Dpto. de Quimica-Fisica,
+Universidad de Alicante, Spain</span>. </strong></li>
+<strong> <br/>
+</strong>
+<li><strong><strong>E. Louis</strong>,<span> Dpto. de
+Fisica Aplicada, Universida de Alicante, Spain. </span></strong></li>
+<strong> <br/>
+</strong>
+<li><strong> <strong>E. SanFabian</strong>, <span>Dpto. de
+Quimica-Fisica, Universidad de Alicante, Spain. </span></strong></li>
+<strong> <br/>
+</strong>
+<li><strong> <strong>J. A. Verges</strong>, <span>Dpto. de Fisica Teorica de la
+Materia Condensada,
+Instituto de Ciencia de Materiales de Madrid, CSIC, Spain.</span></strong></li>
+</ul>
+</ul><h2>Distribution and contact</h2><ol>
+<li>1- Contact <a href="http://www.simune.eu"><span><strong>SIMUNE Atomistics</strong></span>
+</a></li>
+<li><br/>
+</li>
+<li>2- Contact <strong>Juan
+Jose
+Palacios</strong> <br/>
+</li>
+<li><br/>
+</li>
+<ol>
+<div><span><strong>     </strong></span><span><strong> 
+
+
+
+
+    </strong></span><span></span><strong><br/>
+<span>      
+Departamento
+de
+Fisica
+de
+la Materia Condensada</span><br/>
+<span>      
+Facultad
+de
+Ciencias</span><br/>
+<span>      
+Universidad
+Autonoma
+de
+Madrid,
+E-28049, Spain<br/>
+juanjose.palacios@uam.es<br/>
+</span></strong></div>
+<strong> </strong>
+</ol>
+</ol>
+</div><nav aria-label="Documentation pages" class="pager"><span></span><a href="manual_1_g03.html">Installation instructions →</a></nav></main></div>
 <footer>ANT — Atomistic NanoTransport · <a href="../index.html">Back to ANT</a></footer></body></html>
