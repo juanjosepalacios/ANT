@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ANT — Atomistic NanoTransport. Source code, documentation and examples for ANT.Gaussian09.">
+<meta name="description" content="ANT — Atomistic NanoTransport. Source code, documentation and examples for ANT.Gaussian09 and ANT.Gaussian16.">
 <title>ANT · Atomistic NanoTransport</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&display=swap');
@@ -14,10 +14,34 @@
 <body>
 <header><nav class="wrap" aria-label="Main navigation"><a class="brand" href="./">ANT<span aria-hidden="true" style="color:#8faaa0">.</span></a><div class="navlinks"><a href="#codes">Code</a><a href="#resources">Resources</a><a href="https://github.com/juanjosepalacios/ANT">GitHub ↗</a></div></nav></header>
 <main class="wrap">
-<div class="hero"><p class="eyebrow">Atomistic NanoTransport</p><h1>Quantum transport.<span>From the atom up.</span></h1><p class="lead">ANT computes electrical current in atomically defined nanostructures by combining self-consistent electronic structure calculations, typically density functional theory, with Landauer transport and non-equilibrium Green’s functions.</p><a class="button primary" href="#codes">Explore the code ↓</a></div>
+<div class="hero"><p class="eyebrow">Atomistic NanoTransport</p><h1>Quantum transport.<span>From the atom up.</span></h1><p class="lead">ANT computes electrical current in atomically defined nanostructures by combining self-consistent electronic structure calculations, typically density functional theory, with Landauer transport and non-equilibrium Green’s functions.</p><a class="button primary" href="#codes">Explore the codes ↓</a></div>
 <section id="about"><h2>About ANT</h2><p>ANT is a long-term project started in 2000 at the Physics Department of the University of Alicante, with the aim of computing electrical current in atomically defined nanostructures. It combines self-consistent field electronic structure calculations, typically density functional theory, with the Landauer transport formalism and the non-equilibrium Green’s function formalism.</p></section>
-<section id="codes"><h2>The ANT code</h2><article class="code"><div><p class="eyebrow">Gaussian 09</p><h3>ANT.Gaussian09</h3><p>ANT.Gaussian09 is a computational tool for nanoelectronics that interfaces seamlessly with Gaussian 03/09. Applications include computing zero-bias conductance and electrical current under an applied bias voltage in molecular bridges and metallic atomic contacts, such as those created using scanning tunnelling microscopy or break-junction techniques.</p><p>Its use can also be extended to scanning tunnelling spectroscopy and the simulation of scanning tunnelling and electrostatic force microscopy.</p><p class="note">Listed here as ANT.Gaussian09. The source repository is named ANT.Gaussian.</p><div class="actions"><a class="button primary" href="https://github.com/juanjosepalacios/ANT.Gaussian">View source ↗</a><a class="button" href="https://github.com/juanjosepalacios/ANT.Gaussian/archive/refs/heads/master.zip">Download source ZIP</a></div></div><div><h3>Get the source</h3><pre><code>git clone https://github.com/juanjosepalacios/ANT.Gaussian.git</code></pre><p class="note">Follow the repository’s installation instructions for prerequisites, compiler configuration and build settings.</p><p class="note">Distributed under the <a href="https://github.com/juanjosepalacios/ANT.Gaussian/blob/master/LICENSE">GNU General Public License v3.0</a>.</p></div></article></section>
-<section id="resources"><h2>Start working with ANT</h2><div class="resources"><article class="resource"><h3>Documentation</h3><p>Read the technical documentation and keyword reference supplied with the code.</p><a href="https://github.com/juanjosepalacios/ANT.Gaussian/tree/master/doc">Browse documentation ↗</a></article><article class="resource"><h3>Installation</h3><p>Find the installation files and consult the repository README for environment settings.</p><a href="https://github.com/juanjosepalacios/ANT.Gaussian/tree/master/install">Installation files ↗</a></article><article class="resource"><h3>Examples</h3><p>Explore the example calculations included in the repository.</p><a href="https://github.com/juanjosepalacios/ANT.Gaussian/tree/master/examples">Browse examples ↗</a></article></div></section>
+<section id="codes"><h2>ANT codes</h2><article class="code"><div><p class="eyebrow">Gaussian 09</p><h3>ANT.Gaussian09</h3><p>ANT.Gaussian09 is a computational tool for nanoelectronics that interfaces seamlessly with Gaussian 03/09. Applications include computing zero-bias conductance and electrical current under an applied bias voltage in molecular bridges and metallic atomic contacts, such as those created using scanning tunnelling microscopy or break-junction techniques.</p><p>Its use can also be extended to scanning tunnelling spectroscopy and the simulation of scanning tunnelling and electrostatic force microscopy.</p><p class="note">Listed here as ANT.Gaussian09. The source repository is named ANT.Gaussian.</p><div class="actions"><a class="button primary" href="https://github.com/juanjosepalacios/ANT.Gaussian">View source ↗</a><a class="button" href="https://github.com/juanjosepalacios/ANT.Gaussian/archive/refs/heads/master.zip">Download source ZIP</a></div></div><div><h3>Get the source</h3><pre><code>git clone https://github.com/juanjosepalacios/ANT.Gaussian.git</code></pre><p class="note">Follow the repository’s installation instructions for prerequisites, compiler configuration and build settings.</p><p class="note">Distributed under the <a href="https://github.com/juanjosepalacios/ANT.Gaussian/blob/master/LICENSE">GNU General Public License v3.0</a>.</p></div></article>
+<article class="code" id="gaussian16" style="margin-top:28px">
+  <div>
+    <p class="eyebrow">Gaussian 16</p>
+    <h3>ANT.Gaussian16</h3>
+    <p>ANT.Gaussian16 couples the ANT quantum transport code to Gaussian through the GauOpen Python interface. The ANT-Gau-Open workflow computes lead densities of states and the device transmission function using Gaussian electronic structure calculations and ANT’s electrode models.</p>
+    <p>The implementation includes optional OpenMP parallelisation in its Fortran component, controls for Gaussian processor and memory settings, and support for restarting calculations from Gaussian binary archive files.</p>
+    <p class="note">Prototype · Proprietary · Private repository</p>
+    <div class="actions">
+      <a class="button primary" href="https://github.com/juanjosepalacios/ANT.Gaussian16">Repository (authorised users) ↗</a>
+      <a class="button" href="mailto:juanjose.palacios@uam.es?subject=ANT.Gaussian16%20access">Enquire about access</a>
+    </div>
+  </div>
+  <div>
+    <h3>Requirements &amp; documentation</h3>
+    <p>Installation requires Gaussian and GauOpen. The project’s installation guide describes its dependencies and build configuration, including the SIMUNE package source for GauOpen.</p>
+    <ul>
+      <li><a href="https://github.com/juanjosepalacios/ANT.Gaussian16/blob/main/README.md">Usage guide</a></li>
+      <li><a href="https://github.com/juanjosepalacios/ANT.Gaussian16/blob/main/INSTALL.md">Installation instructions</a></li>
+      <li><a href="https://github.com/juanjosepalacios/ANT.Gaussian16/tree/main/examples">Example inputs</a></li>
+    </ul>
+    <p class="note">These links require a GitHub account with repository access.</p>
+  </div>
+</article>
+</section>
+<section id="resources"><h2>ANT.Gaussian09 resources</h2><div class="resources"><article class="resource"><h3>Documentation</h3><p>Read the technical documentation and keyword reference supplied with the code.</p><a href="https://github.com/juanjosepalacios/ANT.Gaussian/tree/master/doc">Browse documentation ↗</a></article><article class="resource"><h3>Installation</h3><p>Find the installation files and consult the repository README for environment settings.</p><a href="https://github.com/juanjosepalacios/ANT.Gaussian/tree/master/install">Installation files ↗</a></article><article class="resource"><h3>Examples</h3><p>Explore the example calculations included in the repository.</p><a href="https://github.com/juanjosepalacios/ANT.Gaussian/tree/master/examples">Browse examples ↗</a></article></div></section>
 <section><h2>Research &amp; contact</h2><p>ANT is developed in the context of research in atomistic electronic structure and quantum transport led by Juan José Palacios.</p><p><a href="https://members.ifimac.uam.es/atomelix/">AtomEliX research group ↗</a> &nbsp;·&nbsp; <a href="mailto:juanjose.palacios@uam.es">Contact Juan José Palacios</a></p></section>
 </main><footer><div class="wrap"><span>ANT — Atomistic NanoTransport</span><a href="https://github.com/juanjosepalacios/ANT.Gaussian">ANT.Gaussian09 source repository ↗</a></div></footer>
 </body></html>
