@@ -133,8 +133,8 @@ both electrodes are set to GHOST or when using periodic 1D leads
 Default: ETA = 1.0D-10
 
 * SL (real)
-Convergence criterion for switching on the infinite electrodes (Bethe lattice). These are connected when the standard GAUSSIAN03 SCF convergence for the density matrix (RMSDP) reaches RMSDP < SL, where the overall convergence criterion is set in the GAUSSIAN03 input file with the SCF option "scf(conver=n)".
-Remark: If SL = 0, the leads are only connected after the GAUSSIAN03 SCF calculation has converged (cycle=1000). 
+Convergence criterion for switching on the infinite electrodes (Bethe lattice). These are connected when the standard Gaussian09 SCF convergence for the density matrix (RMSDP) reaches RMSDP < SL, where the overall convergence criterion is set in the Gaussian09 input file with the SCF option "scf(conver=n)".
+Remark: If SL = 0, the leads are only connected after the Gaussian09 SCF calculation has converged (cycle=1000). 
 This is only recommended for quick and dirty calculations.
 SL/10 is also the RMSDP threshold at which spin locking is switched off when NSPINLOCK < 0 (see NSPINLOCK).
 Default: SL = 1.0D-2
@@ -208,7 +208,7 @@ and SELFACC control the Dyson solution; ETA may need to exceed its default.
 
 GHOST: Attach no electrode self-energy on the selected side. When both
 electrodes are GHOST, the input cluster is treated as an isolated system,
-similarly to the original GAUSSIAN03/09 calculation, with ANT.G convergence
+similarly to the original Gaussian09 calculation, with ANT.G convergence
 controls.
 Default: TYPE1 = BETHE and TYPE2 = BETHE
 
@@ -277,7 +277,7 @@ Default: DMIMAG = .false.
 ---------------------------
 
 * When the file P.<job_name>.dat is present, the calculation is initialized from the density matrix stored in 
-P.<job_name>.dat. It is advisable to include the keyword nodamp in the SCF options of the GAUSSIAN03/09 input 
+P.<job_name>.dat. It is advisable to include the keyword nodamp in the SCF options of the Gaussian09 input 
 line "scf=(nodamp)" and make sure that the standard orientation of the system is the same as that of 
 the calculation stored in  P.<job_name>.dat. You might also need to add "nosymm" as in "scf(nodamp,nosymm)" if you want 
 to start with an educated guess for magnetic systems with an unusual spin texture.
@@ -323,7 +323,7 @@ where the second line indicates the atoms to be preserved.
 Bias voltage (in eV). It is recommended to perfom first a calculation at zero bias and then reinitialize 
 from P.<job_name>.dat (see FINIT). Succesive calculations at different bias voltages can be perfomed starting from 
 a previous calculation in the same way. You need to add "nosymm" to the SCF specifications line in  the 
-GAUSSIAN03/09 input file as "scf(nosymm)". The potential drop profile can be read from the file V.<job_name>.dat where 
+Gaussian09 input file as "scf(nosymm)". The potential drop profile can be read from the file V.<job_name>.dat where 
 the atom on-site energies (averaged to all orbitals in the atom) are stored.
 Default: BIASVOLT = 0.0
 
@@ -331,7 +331,7 @@ Default: BIASVOLT = 0.0
 Charge excess to effectively change the chemical potential or Fermi level. This simulates the action of a 
 gate voltage. It is recommended to perfom first a calculation at charge neutrality and then reinitialize 
 from P.<job_name>.dat. Succesive calculations at different values of the excess charge can be perfomed 
-starting from a previous calculation in the same way. It overrules the charge given to GAUSSIAN03/09 through 
+starting from a previous calculation in the same way. It overrules the charge given to Gaussian09 through 
 its input file.
 Default: QEXCESS = 0.0
 
@@ -358,7 +358,7 @@ Default: .false. (both electrodes "up").
 * MRSTART (integer)
 Useful to create an educated guess for a new calculation with an unusual spin texture starting from a 
 precomputed density matrix. In particular, it reverses the magnetization direction for all atoms with 
-numbers >= MRSTART. You need to add "nosymm" to the SCF specifications line in  the GAUSSIAN03/09 input 
+numbers >= MRSTART. You need to add "nosymm" to the SCF specifications line in  the Gaussian09 input 
 file as "scf(nosymm)".
 Default: MRSTART = 0 (No effect).
 
@@ -370,7 +370,7 @@ Default: SPINDEL = .false.
 * SPINEDIT (logical)
 Useful to create an educated guess for a new calculation with an unusual spin texture starting from 
 a precomputed density matrix. In particular, it manipulates the magnetization direction (spin) of 
-individual atoms. You need to add "nosymm" to the SCF specifications line in the GAUSSIAN03/09 input file 
+individual atoms. You need to add "nosymm" to the SCF specifications line in the Gaussian09 input file 
 as "scf(nosymm)".
 Syntax:
 SPINEDIT
@@ -383,7 +383,7 @@ Default: .false. (off)
 
 * NALPHA and NBETA (integer)
 Number of alpha(up) and beta(down) electrons. It overrules the numbers determined by the multiplicity 
-given in the GAUSSIAN03/09 input file. Any number is possible as long as is >= 0. Useful after editing 
+given in the Gaussian09 input file. Any number is possible as long as is >= 0. Useful after editing 
 the density matrix to create an educated guess for a new calculation  (see SPINEDIT and MRSTART).
 Default: NALPHA = NBETA = -1 (not used).
 

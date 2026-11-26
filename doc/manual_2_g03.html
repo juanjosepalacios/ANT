@@ -5,12 +5,12 @@
 <div class="layout"><aside><details class="doc-menu" open=""><summary>ANT.Gaussian09 documentation</summary><nav aria-label="Documentation"><a href="ant_g03.html">Overview</a><a href="manual_1_g03.html">Installation instructions</a><a href="manual_3_g03.html">Keyword reference</a><a aria-current="page" href="input_files_g03.html">Input files</a><a href="publications_g03.html">Publication and citation</a><a href="examples_g03.html">Example outputs</a></nav></details></aside><main><p class="eyebrow">Atomistic NanoTransport</p><h1>Gaussian input file</h1><div class="doc-content">
 <hr/>
 <h3 id="common-input-setup">Common Gaussian input setup</h3>
-1) The GAUSSIAN03/09 standard links <span>L101</span>
+1) The Gaussian09 standard links <span>L101</span>
 and <span>L502 </span>(<span>l101.exe</span> and <span>l502.exe</span>) have to be replaced by
 the
 modified links. This can be done
 simply by adding the following lines before the section
-that starts with # in the GAUSSIAN03/09 input file (<em>job_name.com</em>):<br/>
+that starts with # in the Gaussian09 input file (<em>job_name.com</em>):<br/>
 <br/>
 <em>%Subst L101 $home/ANT.G-x.x.x/bin</em><br/>
 <span>%Subst L502 $home/ANT.G-x.x.x/bin</span><br/>
@@ -230,7 +230,7 @@ If one of the electrodes is missing you need to state this in the <em>job_name.a
 </em> file using the electrode type GHOST (see <strong> ANT.G</strong>
 input file). The transmission is not evaluated, but the calculation is
 carried out similarly. If both electrodes are missing the calculation
-is completely equivalent to that of GAUSSIAN03/09, but using the
+is completely equivalent to that of Gaussian09, but using the
 Green's
 function formalism. This presents several advantages over the standard
 calculation.<br/>
