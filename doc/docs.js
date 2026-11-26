@@ -14,9 +14,10 @@ window.addEventListener('hashchange', revealLinkedEntry);
 window.addEventListener('DOMContentLoaded', revealLinkedEntry);
 
 window.addEventListener('DOMContentLoaded', () => {
-  const menu = document.querySelector('.doc-menu');
-  const narrowScreen = window.matchMedia('(max-width:800px)');
-  const fitMenu = () => { menu.open = !narrowScreen.matches; };
-  fitMenu();
-  narrowScreen.addEventListener('change', fitMenu);
+  const header = document.querySelector('.section-header');
+  const updateHeaderHeight = () => {
+    document.documentElement.style.setProperty('--section-nav-height', `${header.offsetHeight}px`);
+  };
+  updateHeaderHeight();
+  new ResizeObserver(updateHeaderHeight).observe(header);
 });
