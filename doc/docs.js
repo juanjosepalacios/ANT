@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (new URLSearchParams(window.location.search).get('code') !== 'gaussian16') return;
   const destinations = {
     'ant_g03.html': 'ant_g03.html?code=gaussian16',
-    'manual_1_g03.html': 'g16-installation.html',
+    'manual_1_g03.html': 'g16-installation.html?v=2',
     'manual_3_g03.html': 'manual_3_g03.html?code=gaussian16',
     'input_files_g03.html': 'g16-input-files.html?v=2',
     'publications_g03.html': 'publications_g03.html?code=gaussian16',
